@@ -12,19 +12,27 @@ import 'package:flutter/material.dart';
           appBar: AppBar(
       title: Text("My header"),
       ),
-      body:ListView.builder(itemCount:20,itemBuilder:(context,index){
+      body:ListView.builder(itemCount:5,
+          itemBuilder:(context,index){
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children:[
+          Row(
+
         children: <Widget>[
           CircleAvatar(backgroundColor: Colors.blue,
           child: Text("$index"),
         ),
         Text("User Name"),
-        Text("2:00")
+        ],
+        ),
+        Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: Text("2:00"),
+        )
+        ],
 
-
-
-        ],);
+        );
       })
           );
       }
