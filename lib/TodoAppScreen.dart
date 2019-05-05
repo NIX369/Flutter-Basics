@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app3/Model/todo.dart';
-import 'package:path/path.dart';
+
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ToDoApp extends StatefulWidget {
   @override
@@ -13,6 +14,22 @@ class ToDoApp extends StatefulWidget {
     final TextEditingController controller = new TextEditingController();
     List<ToDo> todoList = [];
     int count = 0;
+
+
+    @override
+      void initState() {
+      super.initState();
+      localStorageTest();
+    }
+    localStorageTest() async{
+      var amIStored = await SharedPreferences.getInstance();
+
+      if(amIStored == null)
+        print("Empty Local Storage");
+      else
+        print("There is something in Storage");
+
+    }
 
     void addToDoItem() {
       ToDo item = ToDo();
