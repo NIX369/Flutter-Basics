@@ -99,7 +99,13 @@ class ToDoApp extends StatefulWidget {
 
                 },
               ),
-              title: Text("${todoList[index].task}"),
+              title: Text("${todoList[index].task}",
+              style: TextStyle(
+                decoration: todoList[index].isCompleted
+                ? TextDecoration.lineThrough
+                : TextDecoration.none),
+
+            ),
               trailing: IconButton(
                   onPressed: () {
                     deleteTodoItem(index);
